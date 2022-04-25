@@ -1,4 +1,4 @@
-#' Truncated Normal Fill Rate ROP Calculation for the Continuous Review Inventory Control Policy
+#' Truncated Normal Fill Rate ROP Calculation from LTD data for the Continuous Review Inventory Control Policy
 #'
 #' This function calculates the ROP for a single inventory item with a P2 proportion
 #' of demand fulfilled from available stock fill rate under the continuous review (s, Q)

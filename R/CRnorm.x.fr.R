@@ -1,4 +1,4 @@
-#' Normal Fill Rate ROP or SS Calculation for the Continuous Review Inventory Control Policy
+#' Normal Fill Rate ROP or SS Calculation from LTD data for the Continuous Review Inventory Control Policy
 #'
 #' This function calculates the reorder point (ROP) or safety stock (SS) for a single inventory
 #' item with a fill rate P2 proportion of demand fulfilled from available stock under the

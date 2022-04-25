@@ -1,4 +1,4 @@
-#' Gamma Fill Rate ROP and SS Calculation for the Continuous Review (s, Q) Inventory Control Policy
+#' Gamma Fill Rate ROP and SS Calculation from lead-time and demand data for the Continuous Review Inventory Control Policy
 #'
 #' This function calculates the reorder point (ROP) or safety stock (SS) for a single inventory
 #' item with a P2 proportion of demand fulfilled from available stock fill rate under the (s, Q)
@@ -14,15 +14,15 @@
 #' @param qty item's fixed order quantity
 #' @param P2 item's fill rate target proportion demand fulfilled from available stock
 #' @param muX mean of lead time demand
-#' @param sigmX standard devation of lead time demand
-#' @param Log if TRUE returns the ROP else SS, default is TRUE
+#' @param sigmX standard deviation of lead time demand
+#' @param logical if TRUE returns the ROP else SS, default is TRUE
 #'
 #' @return The gamma approximation ROP or SS
 #' @export
 #'
 #' @examples
 #' gammfr(50,0.90,100,120)
-gammfr<-function(qty,P2,muX,sigmX,Log){
+gammfr<-function(qty,P2,muX,sigmX,logical){
 
   Gshape<-muX^2/sigmX^2
   Gscale<-muX/sigmX^2
