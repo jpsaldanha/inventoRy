@@ -1,32 +1,32 @@
-#' Estimate Bootstrap ROP or SS from Lead-Time and Demand Data for a Continuous Review Policy with a Target Fill Rate
+#' Estimate Bootstrap ROP or SS from Lead-Time and Demand Data for a Continuous Review Policy
+#' with a Target Fill Rate
 #'
-#' The function uses one input vector each of lead-time and demand to determine the reorder
+#' The function uses one input vector each of lead time and demand to determine the reorder
 #' point (ROP) for a target P2 proportion of demand fulfilled from available stock i.e.
 #' fill rate. for the continuous review inventory control policy. The full algorithm is
-#' provided in Foarth (2021). The inputs must include a LTD vector a P2 fill rate and a fixed
-#' order quantity (qty). An optional number of B bootstrap resamples may be provided, the
-#' default is set to 500. It is recommended not to set B<200 resamples. As B increases
+#' provided in Saldanha (2021). The inputs must include a LTD vector a P2 fill rate and a
+#' fixed order quantity (qty). An optional number of B bootstrap resamples may be provided,
+#' the default is set to 500. It is recommended not to set B<200 resamples. As B increases
 #' (e.g. B>1000) the marginal accuracy gained is trivial and the run time will increase,
 #' especially if used in batch runs to determine ROPs over hunderds of items. As per
-#' Foarth (2021) the ROP is estimated automatically using the traditional fill rate estimator
-#' when P2>0.9 and the Silver (1970) approach otherwise.
+#' Saldanha (2021) the ROP is estimated automatically using the traditional fill rate
+#' estimator when P2>0.9 and the Silver (1970) approach otherwise.
 #'
 #' The ROP is the default value returned from the function but if safety stock is desired
-#' then an optional input can be added where "Log=FALSE" will return the safety stock.
+#' then an optional input can be added using "roptru=FALSE" will return the safety stock.
 #'
-#' Note that the bootstrap approach utilizes a random resampling of the input LTD resamples
-#' with replacement. The random seed for the random resampling is set to the current machine's
-#' system time. Hence, if replicability of the results are desired e.g., the ROP and safety
-#' stock for a number of items need to be calculated then it is recommended to use the input
-#' "seed=". When using the seed input you must use the "Log=TRUE" or "Log=FALSE" inputs to
-#' specify whether the function must return the ROP or safety stock (see examples).
+#' Note that the bootstrap approach utilizes a random resampling of the input lead time and
+#' demand resamples with replacement. The random seed for the random resampling is set to the
+#' current machine's system time. Hence, if replicability of the results are desired e.g., the
+#' ROP and safety stock for a number of items need to be calculated then it is recommended to
+#' use the input "seed=" (see examples).
 #'
 #' @param x a vector of lead-times
 #' @param y a vector of demands
 #' @param qty the fixed order quantity
-#' @param P2 the target fill rate
+#' @param p2 the target fill rate
 #' @param B the number of bootstrap resamples, default is 500
-#' @param Log if TRUE returns the ROP else the SS, default is the ROP
+#' @param roptru if TRUE returns the ROP else the SS, default is the ROP
 #' @param seed a random seed, default is the computer time
 #'
 #' @return
@@ -40,9 +40,9 @@
 #' Returns the SS for fixed order qty=50 and 500 bootstrap resamples with a fill rate of 95%
 #' bootldfr(a,b,50,.95,500,FALSE)
 #' Returns the ROP and SS from the same random numbers
-#' bootldfr(a,b,50,.95,500,TRUE,0)
-#' bootldfr(a,b,50,.95,500,FALSE,0)
-bootldfr<-function(x,y,qty,P2,B=500,Log = TRUE,seed = as.numeric(Sys.time())){
+#' boot.ld.fr(a,b,50,.95,500,TRUE,0)
+#' CRboot.ld.fr(a,b,50,.95,500,FALSE,0)
+CRboot.ld.fr<-function(x,y,qty,p2,B=500,roptru = TRUE,seed = as.numeric(Sys.time())){
 
   set.seed(seed)
   nL<-length(x)
@@ -96,9 +96,9 @@ bootldfr<-function(x,y,qty,P2,B=500,Log = TRUE,seed = as.numeric(Sys.time())){
   BtSmplX<-replicate(B,sort(ltd(x,y)))
   BtSmplMu<-apply(BtSmplX,2,mean)
 
-  TS<-qty*(1-P2)
+  TS<-qty*(1-p2)
 
-  if(P2>0.9){
+  if(p2>0.9){
 
     esMat<-apply(BtSmplX,2,ExpShort,n=nL)
 
@@ -134,7 +134,7 @@ bootldfr<-function(x,y,qty,P2,B=500,Log = TRUE,seed = as.numeric(Sys.time())){
       #      if (is.nan(s_hat[k])) browser() # used for tracing the origin of the NaN values
     }
 
-    if(Log == TRUE){
+    if(roptru == TRUE){
       return(mean(s_hat))
     }else{
       return(mean(s_hat-BtSmplMu))
@@ -148,7 +148,7 @@ bootldfr<-function(x,y,qty,P2,B=500,Log = TRUE,seed = as.numeric(Sys.time())){
 
     SMesMat<-apply(BtSmplX,2,SMExpShort,n=nL)
 
-    TS<-qty*(1-P2)
+    TS<-qty*(1-p2)
 
     diff<-TS-SMesMat
 
@@ -188,7 +188,7 @@ bootldfr<-function(x,y,qty,P2,B=500,Log = TRUE,seed = as.numeric(Sys.time())){
       #      if (is.nan(SMs_hat[k])) browser()
     }
 
-    if(Log == TRUE){
+    if(roptru == TRUE){
       return(mean(SMs_hat))
     }else{
       return(mean(SMs_hat-BtSmplMu))
