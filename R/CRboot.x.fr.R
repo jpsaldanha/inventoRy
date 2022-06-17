@@ -4,12 +4,12 @@
 #' The function uses an input vector of lead time demands (LTD) to determine the reorder
 #' point (ROP) for a target P2 proportion of demand fulfilled from available stock i.e.
 #' fill rate. for the continuous review inventory control policy. The full algorithm is
-#' provided in Saldanha (2021). The inputs must include a LTD vector a P2 fill rate and a
+#' provided in Saldanha (2022). The inputs must include a LTD vector a P2 fill rate and a
 #' fixed order quantity (qty). An optional number of B bootstrap resamples may be provided,
 #' the default is set to 500. It is recommended not to set B<200 resamples. As B increases
 #' (e.g. B>1000) the marginal accuracy gained is trivial and the run time will increase,
 #' especially if used in batch runs to determine ROPs over hunderds of items. As per
-#' Saldanha (2021) the ROP is estimated automatically using the traditional fill rate
+#' Saldanha (2022) the ROP is estimated automatically using the traditional fill rate
 #' estimator when P2>0.9 and the Silver (1970) approach otherwise.
 #'
 #' The ROP is the default value returned from the function but if safety stock is desired
@@ -34,11 +34,11 @@
 #' @examples
 #' a<-rnorm(30,100,20)
 #' Returns ROP for fixed order qty=50 and 500 bootstrap resamples with a fill rate of 95%
-#' bootxfr(a,50,.95,500)
+#' CRboot.x.fr(a,50,.95,500)
 #' Returns the SS for fixed order qty=50 and 500 bootstrap resamples with a fill rate of 95%
-#' bootxfr(a,50,.95,500,FALSE)
+#' CRboot.x.fr(a,50,.95,500,FALSE)
 #' Returns the ROP and SS from the same random numbers
-#' bootxfr(a,50,.95,500,TRUE,0)
+#' CRboot.x.fr(a,50,.95,500,TRUE,0)
 #' CRboot.x.fr(a,50,.95,500,FALSE,0)
 CRboot.x.fr<-function(x,qty,p2,B=500,roptru = TRUE,seed = as.numeric(Sys.time())){
 
