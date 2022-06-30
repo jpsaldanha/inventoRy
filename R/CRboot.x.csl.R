@@ -49,6 +49,6 @@ CRboot.x.csl<-function(x,p1,B=500,roptru = TRUE,seed = as.numeric(Sys.time())){
   if(roptru == TRUE){
     return(mean(BtQuant))
   }else{
-    return(mean(BtQuant-BtSmplMu))
+    return(mean(BtQuant-BtSmplMu0))
   }
 }
