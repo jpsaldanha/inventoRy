@@ -8,7 +8,7 @@
 #' and a P1 PNS. An optional number of B bootstrap resamples may be provided, the default is
 #' set to 500. It is recommended not to set B<200 resamples. As B increases (e.g. B>1000) the
 #' marginal accuracy gained is trivial and the run time will increase, especially if used in
-#' batch runs to determine ROPs over hunderds of items. \
+#' batch runs to determine ROPs over hunderds of items.
 #'
 #' The ROP is the default value returned from the function but if safety stock is desired
 #' then an optional input can be added using "roptru=FALSE" will return the safety stock.
@@ -63,6 +63,6 @@ CRboot.ld.csl<-function(x,y,p1,B=500,roptru = TRUE,seed = as.numeric(Sys.time())
   if(roptru == TRUE){
     return(mean(BtQuant))
   }else{
-    return(mean(BtQuant-BtSmplMu))
+    return(mean(BtQuant-BtSmplMu0))
   }
 }

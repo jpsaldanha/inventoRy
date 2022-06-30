@@ -1,12 +1,12 @@
 Package: inventoRy
 Type: Package
 Title: Performs a Variety of Inventory Calculations
-Version: 0.1.0
+Version: 1.0.0
 Author: John Patrick Saldanha
 Maintainer: John Patrick Saldanha <johnpsaldanha@gmail.com>
 Description: The  inventoRy package offers the conventional textbook expressions
     and nonparametric bootstrap approaches for estimating inventory policy decisions 
-    such as the reorder point and safety stocks for single item inevtories under the 
+    such as the reorder point and safety stocks for single item inventories under the 
     continuous review inventory policy using either the cycle service level or fill 
     rate targets.
 License: MIT + file LICENSE

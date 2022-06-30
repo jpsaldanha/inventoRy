@@ -6,15 +6,15 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of inventoRy is to assist in estimate inventory parameters –
-reorder point (ROP) and safety stock (ss) – for the fill rate and
-service level customer service criterion under the continuous review
-inventory policy. The primary purpose of this package is to provide
-non-paramteric bootstrap estimation functions for cases when the lead
-time demand (LTD) distribution takes on non-standard forms. Functions
-for standard forms are also provided including for uniform, lognormal,
-truncated-normal, etc. as an accompaniment of the Saldanha (2022)
-article.
+The inventoRy package offers the conventional textbook expressions and
+nonparametric bootstrap approaches for estimating inventory policy
+decisions such as the reorder point and safety stocks for single item
+inventories under the continuous review inventory policy using either
+the cycle service level or fill rate targets.
+
+<!--The goal of inventoRy is to assist in estimate inventory parameters -- reorder point (ROP) and safety stock (ss) -- for the fill rate and service level customer service criterion under the continuous review inventory policy.
+The primary purpose of this package is to provide non-paramteric bootstrap estimation functions for cases when the lead time demand (LTD) distribution takes on non-standard forms. Functions for standard forms are also provided including for uniform, lognormal, truncated-normal, etc. as an accompaniment of the Saldanha (2022) article.
+-->
 
 Saldanha, J.P., 2022. Estimating the reorder point for a fill-rate
 target under a continuous review policy in the presence of non-standard
@@ -31,6 +31,8 @@ Logistics and Transportation Review, doi.org/10.1016/j.tre.2022.102766.
 ### install.packages(“devtools”)
 
 devtools::install_github(“jpsaldanha/inventoRy”)
+
+![\\mu](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;%5Cmu "\mu")
 
 <!-- ## Example -->
 <!-- This is a basic example which shows you how to solve a common problem: -->
