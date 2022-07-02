@@ -23,6 +23,7 @@
 #'
 #' @return The uniform approximation ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRunif.ld.fr(c(runif(24,66,134)),c(runif(24,20,40)),0.95,50)

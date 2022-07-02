@@ -19,6 +19,7 @@
 #'
 #' @return the normal approximation ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRnorm.x.fr(c(rnorm(24,100,120)),0.95,50)

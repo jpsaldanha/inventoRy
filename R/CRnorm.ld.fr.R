@@ -23,6 +23,7 @@
 #'
 #' @return The normal approximation ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRnorm.ld.fr(c(rnorm(24,100,120)),c(runif(24,20,40)),0.95,50)

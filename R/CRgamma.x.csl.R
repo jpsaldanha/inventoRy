@@ -17,6 +17,7 @@
 #'
 #' @return The gamma approximation ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRgamma.x.csl(c(runif(24,200,400)),0.90)

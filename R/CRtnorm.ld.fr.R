@@ -23,10 +23,14 @@
 #'
 #' @return The truncated normal approximation ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRtnorm.ld.fr(c(rnorm(24,100,120)),c(runif(24,20,40)),0.95, 50)
 CRtnorm.ld.fr<-function(x,y,p2,qty,roptru=TRUE){
+
+# The error function
+erf <- function(x0) 2 * pnorm(x0 * sqrt(2)) - 1
 
   muLT<-mean(x)
   sigmLT<-sd(x)

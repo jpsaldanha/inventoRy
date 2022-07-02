@@ -16,24 +16,29 @@
 #' @param x vector of lead time demands
 #' @param p2 item's fill rate target proportion demand fulfilled from available stock
 #' @param qty item's fixed order quantity
+#' @param roptru if TRUE returns the ROP else the SS, default is the ROP
 #'
 #' @return the lognormal approximation reorder point (ROP)
 #' @export
+#' @import stats
 #'
 #' @examples
-#' CRlnorm.ld.fr(c(rlnorm(24,4.15917,0.944456)),0.95,50)
-#' This example returns a distributions with a mean of 100 and std. dev. of 120
+#' CRlnorm.x.fr(c(rlnorm(24,4.15917,0.944456)),0.95,50)
+#' # This example returns a distributions with a mean of 100 and std. dev. of 120
 #'
-CRlnorm.ld.fr<-function(x,p2,qty,roptru=TRUE){
+CRlnorm.x.fr<-function(x,p2,qty,roptru=TRUE){
+
+# The error function
+erf <- function(x0) 2 * pnorm(x0 * sqrt(2)) - 1
 
 # Find the first and second moments of the lognormal distribution
 
-  modl<-function(x)
-  {f1<-exp(x[1]+(x[2]^2)/2)-mean(x)
-  f2<-sqrt((exp(x[2]^2)-1)*exp(2*x[1]+x[2]^2))-sd(x)
+  modl<-function(x0)
+  {f1<-exp(x0[1]+(x0[2]^2)/2)-mean(x)
+  f2<-sqrt((exp(x0[2]^2)-1)*exp(2*x0[1]+x0[2]^2))-sd(x)
   c(f1=f1,f2=f2)
   }
-  (ss <- multiroot(f = modl, start = c(1, 1)))
+  (ss <- rootSolve::multiroot(f = modl, start = c(1, 1)))
   muX<-abs(ss$root[1])
   sigmX<-abs(ss$root[2])
 

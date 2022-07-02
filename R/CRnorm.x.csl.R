@@ -17,10 +17,11 @@
 #'
 #' @return The normal approximation ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRnorm.x.csl(c(runif(24,200,400)),0.95)
-CRnorm.ld.csl<-function(x,p1,roptru = TRUE){
+CRnorm.x.csl<-function(x,p1,roptru = TRUE){
 
   muX<-mean(x)
   sigmX<-sd(x)

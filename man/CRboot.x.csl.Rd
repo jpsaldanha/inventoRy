@@ -41,12 +41,9 @@ stock for a number of items need to be calculated then it is recommended to use 
 "seed=" (see examples).
 }
 \examples{
-a<-rnorm(30,100,20)
-Returns ROP with 500 bootstrap resamples for a PNS of 95\%
-CRboot.x.csl(a,.95,500)
-Returns the SS with 500 bootstrap resamples for a PNS of 95\%
-CRboot.x.csl(a,.95,500,FALSE)
-Returns the ROP and SS from the same random numbers
-CRboot.x.csl(a,50,.95,500,TRUE,0)
-CRboot.x.csl(a,50,.95,500,FALSE,0)
+a<-rnorm(30,100,20) # Returns ROP with 500 bootstrap resamples for a PNS of 95\%
+CRboot.x.csl(a,.95,500) # Returns the SS with 500 bootstrap resamples for a PNS of 95\%
+CRboot.x.csl(a,.95,500,FALSE) # Returns the ROP and SS from the same random numbers
+CRboot.x.csl(a,.95,500,TRUE,0)
+CRboot.x.csl(a,.95,500,FALSE,0)
 }

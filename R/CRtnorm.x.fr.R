@@ -16,10 +16,14 @@
 #'
 #' @return the truncated normal approximation ROP or safety stock
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRtnorm.x.fr(c(rnorm(24,100,120)),0.95, 50)
 CRtnorm.x.fr<-function(x,p2,qty,roptru=TRUE){
+
+# The error function
+erf <- function(x0) 2 * pnorm(x0 * sqrt(2)) - 1
 
   mu0<-mean(x)
   sig0<-sd(x)

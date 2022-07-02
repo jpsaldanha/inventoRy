@@ -20,23 +20,24 @@
 #'
 #' @return The normal approximation ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRnorm.ld.csl(c(rnorm(24,100,120)),c(runif(24,20,40)),0.95)
 CRnorm.ld.csl<-function(x,y,p1,roptru = TRUE){
 
-  muLT<-mean(x)
-  sigmLT<-sd(x)
-  muD<-mean(y)
-  sigmD<-sd(y)
-  muX<-muLT*muD
-  sigmX<-sqrt(muLT*sigmD^2+muD^2*sigmLT^2)
+  muLT0<-mean(x)
+  sigmLT0<-sd(x)
+  muD0<-mean(y)
+  sigmD0<-sd(y)
+  muX0<-muLT0*muD0
+  sigmX0<-sqrt(muLT0*sigmD0^2+muD0^2*sigmLT0^2)
 
-  NormROP<-qnorm(p1,muX,sigmX)
+  NormROP0<-qnorm(p1,muX0,sigmX0)
 
   if(roptru == TRUE){
-    return(NormROP)
+    return(NormROP0)
   }else{
-    return(NormROP-muX)
+    return(NormROP0-muX0)
   }
 }

@@ -23,12 +23,16 @@
 #'
 #' @return The lognormal approximation ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRlnorm.ld.fr(c(runif(24,2,8)),c(runif(24,20,40)),0.95,50)
-#' This example returns a distributions with a mean of 100 and std. dev. of 120
+#' # This example returns a distributions with a mean of 100 and std. dev. of 120
 #'
 CRlnorm.ld.fr<-function(x,y,p2,qty,roptru=TRUE){
+
+# The error function
+erf <- function(x0) 2 * pnorm(x0 * sqrt(2)) - 1
 
 # Find the first and second moments of the lognormal distribution
 
@@ -44,7 +48,7 @@ CRlnorm.ld.fr<-function(x,y,p2,qty,roptru=TRUE){
   f2<-sqrt((exp(x[2]^2)-1)*exp(2*x[1]+x[2]^2))-sigmX0
   c(f1=f1,f2=f2)
   }
-  (ss <- multiroot(f = modl, start = c(1, 1)))
+  (ss <- rootSolve::multiroot(f = modl, start = c(1, 1)))
   muX<-abs(ss$root[1])
   sigmX<-abs(ss$root[2])
 

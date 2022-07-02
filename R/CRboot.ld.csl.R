@@ -28,17 +28,15 @@
 #'
 #' @return
 #' @export
+#' @import stats
 #'
 #' @examples
 #' a<-rnorm(24,5,1)
-#' b<-rnorm(24,20,5)
-#' Returns the ROP using 500 bootstrap resamples with a PNS of 95%
-#' CRboot.ld.csl(a,b,.95,500)
-#' Returns the SS using 500 bootstrap resamples with a PNS of 95%
-#' CRboot.ld.csl(a,b,50,.95,500,FALSE)
-#' Returns the ROP and SS from the same random numbers
-#' CRboot.ld.csl(a,b,50,.95,500,TRUE,0)
-#' CRboot.ld.csl(a,b,50,.95,500,FALSE,0)
+#' b<-rnorm(24,20,5) #Returns the ROP using 500 bootstrap resamples with a PNS of 95%
+#' CRboot.ld.csl(a,b,.95,500) #Returns the SS using 500 bootstrap resamples with a PNS of 95%
+#' CRboot.ld.csl(a,b,.95,500,FALSE) #Returns the ROP and SS from the same random numbers
+#' CRboot.ld.csl(a,b,.95,500,TRUE,0)
+#' CRboot.ld.csl(a,b,.95,500,FALSE,0)
 CRboot.ld.csl<-function(x,y,p1,B=500,roptru = TRUE,seed = as.numeric(Sys.time())){
 
   set.seed(seed)

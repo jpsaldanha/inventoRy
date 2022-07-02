@@ -20,6 +20,7 @@
 #'
 #' @return The gamma approximation ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRgamma.x.fr(c(runif(24,100,200)),0.90,50)
@@ -41,7 +42,7 @@ gESC<-qty*(1-p2)
   } else {
 
     GammROP<-optimize(function(s)
-    {abs(Q-(qty*pgamma(s,Gshape,Gscale)+(s+qty)*(pgamma(s+qty,Gshape,Gscale)-
+    {abs(qty-(qty*pgamma(s,Gshape,Gscale)+(s+qty)*(pgamma(s+qty,Gshape,Gscale)-
                                                pgamma(s,Gshape,Gscale))-Gshape/Gscale*
               (pgamma(s+qty,Gshape+1,Gscale)-pgamma(s,Gshape+1,Gscale)))-gESC)
     },lower=0,upper=qgamma(0.9999,Gshape,Gscale))$minimum

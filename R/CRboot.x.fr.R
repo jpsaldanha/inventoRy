@@ -30,14 +30,14 @@
 #'
 #' @return the bootstrap estimate ROP or SS
 #' @export
+#' @import stats
 #'
 #' @examples
 #' a<-rnorm(30,100,20)
-#' Returns ROP for fixed order qty=50 and 500 bootstrap resamples with a fill rate of 95%
+#' # Returns ROP for fixed order qty=50 and 500 bootstrap resamples with a fill rate of 95%
 #' CRboot.x.fr(a,50,.95,500)
-#' Returns the SS for fixed order qty=50 and 500 bootstrap resamples with a fill rate of 95%
-#' CRboot.x.fr(a,50,.95,500,FALSE)
-#' Returns the ROP and SS from the same random numbers
+#' # Returns the SS for fixed order qty=50 and 500 bootstrap resamples with a fill rate of 95%
+#' CRboot.x.fr(a,50,.95,500,FALSE) # Returns the ROP and SS from the same random numbers
 #' CRboot.x.fr(a,50,.95,500,TRUE,0)
 #' CRboot.x.fr(a,50,.95,500,FALSE,0)
 CRboot.x.fr<-function(x,qty,p2,B=500,roptru = TRUE,seed = as.numeric(Sys.time())){

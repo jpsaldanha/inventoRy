@@ -1,6 +1,6 @@
 Package: inventoRy
 Type: Package
-Title: Performs a Variety of Inventory Calculations
+Title: Performs a Variety of Parametric and Nonparamteric Inventory Parameter Estimations
 Version: 1.0.0
 Author: John Patrick Saldanha
 Maintainer: John Patrick Saldanha <johnpsaldanha@gmail.com>

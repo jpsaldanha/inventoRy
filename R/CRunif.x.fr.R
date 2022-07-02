@@ -16,6 +16,7 @@
 #'
 #' @return The uniform approximation ROP or safety stock
 #' @export
+#' @import stats
 #'
 #' @examples
 #' CRunif.x.fr(c(runif(24,66,134)),0.95,50)
