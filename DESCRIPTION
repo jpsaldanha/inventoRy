@@ -2,13 +2,16 @@ Package: inventoRy
 Type: Package
 Title: Performs a Variety of Parametric and Nonparamteric Inventory Parameter Estimations
 Version: 1.0.0
-Author: John Patrick Saldanha
+Authors@R: person(
+  "John", "Saldanha",
+  email = "jpsaldanha@mail.wvu.edu",
+  role = c("aut", "cre"),
+  comment = c(ORCID = "0000-0003-1345-1743"))
 Maintainer: John Patrick Saldanha <johnpsaldanha@gmail.com>
-Description: The  inventoRy package offers the conventional textbook expressions
-    and nonparametric bootstrap approaches for estimating inventory policy decisions 
-    such as the reorder point and safety stocks for single item inventories under the 
-    continuous review inventory policy using either the cycle service level or fill 
-    rate targets.
+Description: The  inventoRy package offers the and nonparametric bootstrap approaches for 
+    estimating inventory policy decisions such as the reorder point and safety stocks for 
+    single item inventories under the continuous review (periodic review functions will be 
+    updated soon) inventory policy using either the cycle service level or fill rate targets.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

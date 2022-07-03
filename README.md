@@ -9,8 +9,9 @@
 The inventoRy package offers nonparametric bootstrap and conventional
 parametric approaches for estimating inventory policy decisions such as
 the reorder point (ROP) and safety stocks (SS). These functions are for
-single item inventories under the continuous review inventory policy
-using either the cycle service level (CSL) or fill rate (FR) targets.
+single item inventories under the continuous review (periodic review
+functions are in development) inventory policy using either the cycle
+service level (CSL) or fill rate (FR) targets.
 
 The nonparametric bootstrap approach is particularly useful when users
 are unsure if the shape of the LTD distributions follows a conventional
@@ -71,11 +72,11 @@ x<-runif(24,100,200)
 
 # ROP
 CRboot.x.csl(x,.9)
-#> [1] 188.4501
+#> [1] 174.2198
 
 # SS
 CRboot.x.csl(x,.9,roptru=FALSE)
-#> [1] 34.17315
+#> [1] 21.8229
 ```
 
 2.  ROP and SS with LTD for a FR target
@@ -91,11 +92,11 @@ x<-runif(24,100,200)
 
 # ROP
 CRboot.x.fr(x,100,.95)
-#> [1] 177.8458
+#> [1] 163.9228
 
 # SS
 CRboot.x.fr(x,100,.95,roptru=FALSE)
-#> [1] 15.728
+#> [1] 13.16234
 ```
 
 3.  ROP and SS with independent lead time and demand for a CSL target
@@ -112,11 +113,11 @@ y<-runif(12,20,40)
 
 # ROP
 CRboot.ld.csl(x,y,.9)
-#> [1] 232.6547
+#> [1] 219.4613
 
 # SS
 CRboot.ld.csl(x,y,.9,roptru=FALSE)
-#> [1] 57.87157
+#> [1] 51.76902
 ```
 
 4.  ROP and SS with independent lead time and demand for a FR target
@@ -133,11 +134,11 @@ y<-runif(12,20,40)
 
 # ROP
 CRboot.ld.fr(x,y,100,.95)
-#> [1] 199.0693
+#> [1] 194.3518
 
 # SS
 CRboot.ld.fr(x,y,100,.95,roptru=FALSE)
-#> [1] 54.75299
+#> [1] 63.64624
 ```
 
 ## References

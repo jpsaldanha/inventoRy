@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The  inventoRy package offers  nonparametric bootstrap and conventional parametric approaches for estimating inventory policy decisions such as the reorder point (ROP) and safety stocks (SS). These functions are for single item inventories under the continuous review inventory policy using either the cycle service level (CSL) or fill rate (FR) targets. 
+The  inventoRy package offers  nonparametric bootstrap and conventional parametric approaches for estimating inventory policy decisions such as the reorder point (ROP) and safety stocks (SS). These functions are for single item inventories under the continuous review (periodic review functions are in development) inventory policy using either the cycle service level (CSL) or fill rate (FR) targets. 
 
 The nonparametric bootstrap approach is particularly useful when users are unsure if the shape of the LTD  distributions follows a conventional parametric form or nonparametric form. Bootstrap works well when distributions of lead time demand follow non-standard shapes and when conventional normal and gamma estimates can be biased (Fig. 1). See also Saldanha et al. 2020 and Saldanha (2022).
 
